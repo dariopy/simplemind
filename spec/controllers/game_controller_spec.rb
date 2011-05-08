@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe GameController do
+  render_views
 
   describe "GET 'newgame'" do
     it "should be successful" do
@@ -9,9 +10,16 @@ describe GameController do
     end
   end
 
-  describe "GET 'guess'" do
+  describe "POST 'guess'" do
     it "should be successful" do
-      get 'guess'
+      post 'guess'
+      response.should be_success
+    end
+  end
+
+  describe "GET 'ladder'" do
+    it "should be successful" do
+      get 'ladder'
       response.should be_success
     end
   end

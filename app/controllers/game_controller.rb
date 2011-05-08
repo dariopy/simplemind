@@ -5,4 +5,7 @@ class GameController < ApplicationController
   def guess
   end
 
+  def ladder
+  end
+
 end

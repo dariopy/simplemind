@@ -1,7 +1,9 @@
 Simplemind::Application.routes.draw do
   get "game/newgame"
 
-  get "game/guess"
+  post "game/guess"
+
+  get "game/ladder"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
