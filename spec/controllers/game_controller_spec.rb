@@ -17,11 +17,4 @@ describe GameController do
     end
   end
 
-  describe "GET 'ladder'" do
-    it "should be successful" do
-      get 'ladder'
-      response.should be_success
-    end
-  end
-
 end

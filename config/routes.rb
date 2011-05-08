@@ -1,10 +1,12 @@
 Simplemind::Application.routes.draw do
-  get "game/newgame"
+  match '/ladder', :to => 'ladder#show'
 
-  post "game/guess"
+  get "users/new"
 
-  get "game/ladder"
+  match '/newgame', :to => 'game#newgame'
 
+  match '/guess', :to => 'game#guess', :via => :get #change to post later
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

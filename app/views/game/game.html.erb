@@ -1,0 +1,54 @@
+<h1>Guess the sequence</h1>
+<h3><%= @message %></h3>
+<div id="gameDiv">
+  <table>
+    <tr>
+      <th>Game Goes Here. TBD.</th>
+      <% if not @guesses.nil? %>
+        <% @guesses.each do |guess| %>
+        <tr>
+          <td><%= guess[:guess] %></td>
+          <td><%= guess[:correct] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tr>
+  </table>
+
+</div>
+<div id="formDiv">
+  <form action="/guess" method="GET">
+    <input type="hidden" name="gameid" value="<%= @gameid %>" />
+    <table>
+      <tr>
+        <td>
+          <select name="g1">
+            <option value="0" >0</option>
+            <option value="1" >1</option>
+          </select>
+        </td>
+        <td>
+          <select name="g2">
+            <option value="0" >0</option>
+            <option value="1" >1</option>
+          </select>
+        </td>
+        <td>
+          <select name="g3">
+            <option value="0" >0</option>
+            <option value="1" >1</option>
+          </select>
+        </td>
+        <td>
+          <select name="g4">
+            <option value="0" >0</option>
+            <option value="1" >1</option>
+          </select>
+        </td>
+        <td>
+          <input type="submit" value="Go" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
