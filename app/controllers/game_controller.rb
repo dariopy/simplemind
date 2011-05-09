@@ -2,11 +2,7 @@ class GameController < ApplicationController
   before_filter :authenticate
 
   def newgame
-#    if not signed_in?
-##      redirect_to :controller => 'sessions', :action => 'new'
-#      redirect_to '/signin'
-#      return
-#    end
+    @title = "Game"
     @endgame = false
     @message = "You've got 8 tries"
     #create a new game
@@ -15,7 +11,10 @@ class GameController < ApplicationController
     #convert to desired format, with dashes as separators
     game_string = game_number.chars.to_a.join("-") 
     #create the game and store in database
+#    game = Game.create({:game_string => game_string, :won => false, :lost => false})
     game = Game.create({:game_string => game_string, :won => false, :lost => false})
+    game.user = current_user
+    game.save  
     @gameid = game.id
     #just testing
     @gamestring = game_string
@@ -25,6 +24,7 @@ class GameController < ApplicationController
   end
 
   def guess
+    @title = "Game"
     #default values here
     @winner = false
     @endgame = false

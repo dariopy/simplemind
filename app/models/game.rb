@@ -15,6 +15,8 @@
 
 class Game < ActiveRecord::Base
 
+  belongs_to :user
+
   validates :game_string, :presence => true
 
   validates :won, :inclusion => { :in => [true, false]}

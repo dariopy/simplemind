@@ -1,2 +1,34 @@
-<h1>Ladder#show</h1>
-<p>Find me in app/views/ladder/show.html.erb</p>
+<h3>Players ranking</h3>
+<div id="ladderDiv" class="round">
+  <table class="ladder">
+    <% if @the_ranking.nil? %>
+      <tr><th>There are no games registered.</th></tr>
+    <% end %>
+    <% if not @the_ranking.nil? %>
+      <tr>
+        <th>User</th>
+        <th>Games</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Avg # of guesses</th>
+      </tr>
+      <% @the_ranking.each do |player| %>
+        <tr>
+          <td><%= player[:name] %></td>
+          <td><%= player[:games] %></td>
+          <td><%= player[:wins] %></td>
+          <td><%= player[:losses] %></td>
+          <td><%= player[:avg_guess] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>
+<!--
+<div class="footer">
+  <ul>
+    <li><%= link_to "New Game", newgame_path %></li>
+    <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+  </ul>
+</div>
+-->

@@ -29,6 +29,7 @@ h6 {font-size:1em;font-weight:bold;}
 .notice a {color:#514721;}
 .success a {color:#264409;}
 .info a {color:#205791;}
+.ladder {color:blue; font-size: large; border-width: 1px; border-style: solid }
 
 header {
     padding-top: 20px;
