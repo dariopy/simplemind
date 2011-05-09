@@ -5,9 +5,7 @@
     <table>
       <tr>
         <% if @guesses.nil? %>
-          <th>Game created <%= @gamestring if Rails.env.development? %>.</th>
-        <% else %>
-          <th>You've got <%= 8 - @guesses.length  %> more tries.</th>
+          <th>Game created <%= @gamestring if Rails.env.development? %>.</th>        
         <% end %>
         <% if not @guesses.nil? %>
           <% @guesses.each do |guess| %>
@@ -59,4 +57,7 @@
       </table>
     </form>
   </div>
+</div>
+<div class="footer">
+  <%= link_to "New Game", newgame_path %>
 </div>

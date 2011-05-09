@@ -65,6 +65,10 @@ class GameController < ApplicationController
         game.lost = true
         @endgame = true
         @message = "Sorry!"
+      else
+        triesleft = 8 - @guesses.count
+        tries = triesleft > 1 ? "try".pluralize : "try"
+        @message = "You've got #{triesleft} #{tries} left"
       end
     end
     #update game.guesses
