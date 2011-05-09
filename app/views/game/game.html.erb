@@ -3,12 +3,16 @@
 <div id="gameDiv">
   <table>
     <tr>
-      <th>Game Goes Here. TBD.</th>
+      <% if @guesses.nil? %>
+      <th>Game created <%= @gamestring if Rails.env.development? %>.</th>
+      <% else %>
+      <th>You've got <%= 8 - @guesses.length  %> more tries.</th>
+      <% end %>
       <% if not @guesses.nil? %>
         <% @guesses.each do |guess| %>
         <tr>
           <td><%= guess[:guess] %></td>
-          <td><%= guess[:correct] %></td>
+          <td><%= guess[:hint] %></td>
         </tr>
       <% end %>
     <% end %>
@@ -17,7 +21,7 @@
 
 </div>
 <div id="formDiv">
-  <form action="/guess" method="GET">
+  <form action="/guess" method="POST">
     <input type="hidden" name="gameid" value="<%= @gameid %>" />
     <table>
       <tr>
@@ -46,7 +50,9 @@
           </select>
         </td>
         <td>
+          <% if not @endgame %>
           <input type="submit" value="Go" />
+          <% end %>
         </td>
       </tr>
     </table>

@@ -5,7 +5,7 @@ Simplemind::Application.routes.draw do
 
   match '/newgame', :to => 'game#newgame'
 
-  match '/guess', :to => 'game#guess', :via => :get #change to post later
+  match '/guess', :to => 'game#guess', :via => :post
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
