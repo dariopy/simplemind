@@ -1,5 +1,12 @@
 class GameController < ApplicationController
+  before_filter :authenticate
+
   def newgame
+#    if not signed_in?
+##      redirect_to :controller => 'sessions', :action => 'new'
+#      redirect_to '/signin'
+#      return
+#    end
     @endgame = false
     @message = "You've got 8 tries"
     #create a new game
@@ -82,5 +89,11 @@ class GameController < ApplicationController
     #display
     render 'game'
   end
+
+  private
+
+    def authenticate
+      deny_access unless signed_in?
+    end
  
 end

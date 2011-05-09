@@ -1,16 +1,19 @@
 Simplemind::Application.routes.draw do
 
   resources :users
-
-  match '/ladder', :to => 'ladder#show'
+  resources :sessions, :only => [:new, :create, :destroy]
 
   match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
+
+  match '/ladder', :to => 'ladder#show'
 
   match '/newgame', :to => 'game#newgame'
 
   match '/guess', :to => 'game#guess', :via => :post
 
-  
+  root :to => 'game#newgame'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
