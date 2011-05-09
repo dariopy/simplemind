@@ -1,4 +1,4 @@
-# BrightRoll Coding Challenge - Simplemind
+# Ruby on Rails Exercise - Simplemind
 ## A simplified Mastermind
 
-By [Dario Alvarez](mailto:dariopy@gmail.com)
+By [Dario Alvarez](http://twitter.com/dariopy)
