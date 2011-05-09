@@ -1,60 +1,62 @@
-<h1>Guess the sequence</h1>
-<h3><%= @message %></h3>
-<div id="gameDiv">
-  <table>
-    <tr>
-      <% if @guesses.nil? %>
-      <th>Game created <%= @gamestring if Rails.env.development? %>.</th>
-      <% else %>
-      <th>You've got <%= 8 - @guesses.length  %> more tries.</th>
-      <% end %>
-      <% if not @guesses.nil? %>
-        <% @guesses.each do |guess| %>
-        <tr>
-          <td><%= guess[:guess] %></td>
-          <td><%= guess[:hint] %></td>
-        </tr>
-      <% end %>
-    <% end %>
-    </tr>
-  </table>
-
-</div>
-<div id="formDiv">
-  <form action="/guess" method="POST">
-    <input type="hidden" name="gameid" value="<%= @gameid %>" />
+<div id="bigDiv" class="round">
+  <h1>Guess the sequence</h1>
+  <h3><%= @message %></h3>
+  <div id="gameDiv" class="round">
     <table>
       <tr>
-        <td>
-          <select name="g1">
-            <option value="0" >0</option>
-            <option value="1" >1</option>
-          </select>
-        </td>
-        <td>
-          <select name="g2">
-            <option value="0" >0</option>
-            <option value="1" >1</option>
-          </select>
-        </td>
-        <td>
-          <select name="g3">
-            <option value="0" >0</option>
-            <option value="1" >1</option>
-          </select>
-        </td>
-        <td>
-          <select name="g4">
-            <option value="0" >0</option>
-            <option value="1" >1</option>
-          </select>
-        </td>
-        <td>
-          <% if not @endgame %>
-          <input type="submit" value="Go" />
-          <% end %>
-        </td>
+        <% if @guesses.nil? %>
+          <th>Game created <%= @gamestring if Rails.env.development? %>.</th>
+        <% else %>
+          <th>You've got <%= 8 - @guesses.length  %> more tries.</th>
+        <% end %>
+        <% if not @guesses.nil? %>
+          <% @guesses.each do |guess| %>
+          <tr>
+            <td><%= guess[:guess] %></td>
+            <td><%= guess[:hint] %></td>
+          </tr>
+        <% end %>
+      <% end %>
       </tr>
     </table>
-  </form>
+
+  </div>
+  <div id="formDiv" class="round">
+    <form action="/guess" method="POST">
+      <input type="hidden" name="gameid" value="<%= @gameid %>" />
+      <table>
+        <tr>
+          <td>
+            <select name="g1">
+              <option value="0" >0</option>
+              <option value="1" >1</option>
+            </select>
+          </td>
+          <td>
+            <select name="g2">
+              <option value="0" >0</option>
+              <option value="1" >1</option>
+            </select>
+          </td>
+          <td>
+            <select name="g3">
+              <option value="0" >0</option>
+              <option value="1" >1</option>
+            </select>
+          </td>
+          <td>
+            <select name="g4">
+              <option value="0" >0</option>
+              <option value="1" >1</option>
+            </select>
+          </td>
+          <td>
+            <% if not @endgame %>
+              <input type="submit" value="Go" />
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
 </div>

@@ -1,0 +1,73 @@
+/* 
+    Document   : simplemind
+    Created on : 08/05/2011, 10:58:42 PM
+    Author     : Junior
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body {font-size:75%;color:#222;background:#bff;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+
+header {
+    padding-top: 20px;
+}
+
+/* Links */
+
+a {
+    color: #09c;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #069;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #069;
+}
+
+#formDiv {
+    float: right;
+    background-color: white;
+    padding: 0 0.7em;
+}
+
+#gameDiv {
+    float: left;
+    background-color: lightskyblue;
+    padding: 0 0.7em;
+}
+
+#bigDiv {
+    width: 600px;
+    border: 1px solid #999;
+    background-color: #9999ff;
+    height: 600px;
+    float: left
+
+}
+
+.round {
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+}
+
+.footer {
+    text-align: left;
+    margin-top: 20px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: inherit;
+    float: left
+    
+}
+
